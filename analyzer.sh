@@ -49,7 +49,7 @@ bash "./modules/download_data.sh" "$@"
 #trimmer les données
 bash "./modules/clean_fastq.sh"
 #contrôle qualité des fastq
-if [ "$quality_control" == true ]; then
+if [ "$quality_control_specified" == true ]; then
   bash "./modules/quality_control.sh"
 fi
 #alignement
