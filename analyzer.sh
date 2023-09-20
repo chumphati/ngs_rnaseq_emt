@@ -11,7 +11,6 @@ quality_control_specified=false
 
 #traiter les arguments
 for arg in "$@"; do
-  echo $arg
   if [[ "$arg" == "--help" ]]; then
     help_specified=true
   elif [[ "$help_specified" == true ]]; then
