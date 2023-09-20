@@ -36,6 +36,7 @@ elif [ -n "$import_data" ]; then
   echo "Data importation ............................. 0%"
   cp $import_data/* results/FASTQ/RAW/ > /dev/null 2>&1
   echo -e "\033[1AData importation ............................. 100%"
-else
+elif [ "$import_data_specified" == false ] && [ "$download_data_specified" == false ]; then
   echo "error : specify whether you wish to download or import your data."
+  exit 1
 fi

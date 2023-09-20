@@ -11,6 +11,7 @@ quality_control_specified=false
 
 #traiter les arguments
 for arg in "$@"; do
+  echo $arg
   if [[ "$arg" == "--help" ]]; then
     help_specified=true
   elif [[ "$help_specified" == true ]]; then
@@ -47,10 +48,12 @@ echo -e "All the dependencies have been checked.\n"
 #début des analyses
 echo -e "Beginning of analysis."
 #télécharger ou importer les données
-bash "./modules/download_data.sh" "$@"
+bash "./modules/download_data.sh" -- "$@"
 #trimmer les données
 bash "./modules/clean_fastq.sh"
 #contrôle qualité des fastq
 if [ "$quality_control" == true ]; then
   bash "./modules/quality_control.sh"
 fi
+#alignement
+bash "./modules/mapping.sh"

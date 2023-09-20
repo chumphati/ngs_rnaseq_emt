@@ -16,7 +16,7 @@ Ce dépôt doit être cloné :
 Le pipeline peut être lancé via ses executables directement dans le dossier d'installation :
 
     cd ngs_ue_ami2b
-    bash analyser.sh [--download_data | --import_data] <options>
+    bash analyser.sh <options> [--download_data | --import_data]
 
 Pour plus d'information sur les options disponible :
 
@@ -27,12 +27,17 @@ Il faut obligatoirement spécifier en argument si on souhaite télécharger de n
 ## Dépendances
 Ce pipeline est basé sur plusieurs dépendances, contenus dans des environnements conda  :
 
-- fastqc v.conda.latest
-- trimmomatic v.conda.latest
-- star v.conda.latest
+- fastqc v.0.12.1
+- trimmomatic v.0.39
+- star v.2.7.11a
 
-Ces dépendances peuvent être optionnellement installées :
+Ces dépendances peuvent être installées via :
 
-    bash analyser.sh --install_dependencies
+    conda create -n analyzer
+    conda activate analyzer
+    conda install -c bioconda fastqc
+    conda install -c bioconda trimmomatic
+    conda install -c bioconda star
+    conda deactivate
 
 
