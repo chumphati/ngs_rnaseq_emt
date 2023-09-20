@@ -15,12 +15,10 @@ for arg in "$@"; do
     help_specified=true
   elif [[ "$help_specified" == true ]]; then
     help="$arg"
-    help_specified=false
   elif [[ "$arg" == "--quality_control" ]]; then
       quality_control_specified=true
   elif [[ "$quality_control_specified" == true ]]; then
     quality_control="$arg"
-    quality_control_specified=false
   fi
 done
 
