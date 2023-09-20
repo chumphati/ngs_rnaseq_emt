@@ -47,7 +47,7 @@ echo -e "All the dependencies have been checked.\n"
 #début des analyses
 echo -e "Beginning of analysis."
 #télécharger ou importer les données
-bash "./modules/download_data.sh" -- "$@"
+bash "./modules/download_data.sh" "$@"
 #trimmer les données
 bash "./modules/clean_fastq.sh"
 #contrôle qualité des fastq

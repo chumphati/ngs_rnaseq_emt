@@ -22,7 +22,7 @@ gunzip $MAPPING_REF/chr18.fa.gz > /dev/null 2>&1
 echo -e "\033[1ADownload reference and annotation file ............................. 100%"
 
 echo "Index reference ............................. 0%"
-STAR --runMode genomeGenerate --runThreadN 4 --genomeDir index --genomeFastaFiles chr18.fa --sjdbGTFfile gencode.v24lift37.basic.annotation.gtf > /dev/null 2>&1
+STAR --runMode genomeGenerate --runThreadN 4 --genomeDir $MAPPING/index --genomeFastaFiles $MAPPING_REF/chr18.fa --sjdbGTFfile $MAPPING_REF/gencode.v24lift37.basic.annotation.gtf > /dev/null 2>&1
 echo -e "\033[1AIndex reference ............................. 100%"
 
 echo "Mapping ............................. 0%"
@@ -31,6 +31,6 @@ x=0
 for i in ${sample_list[*]};do
   ((x=x+15))
   echo -e "\033[1AMapping ............................. ${x}%"
-  STAR --runThreadN 8 --outFilterMultimapNmax 1 --genomeDir index --outSAMattributes All --outSAMtype BAM SortedByCoordinate --outFileNamePrefix $MAPPING/${i} --readFilesIn $FILTERED_FASTQ/${i}_1P.fastq $FILTERED_FASTQ/${i}_2P.fastq > /dev/null 2>&1
+  STAR --runThreadN 8 --outFilterMultimapNmax 1 --genomeDir $MAPPING/index --outSAMattributes All --outSAMtype BAM SortedByCoordinate --outFileNamePrefix $MAPPING/${i} --readFilesIn $FILTERED_FASTQ/${i}_1P.fastq $FILTERED_FASTQ/${i}_2P.fastq > /dev/null 2>&1
 done
 echo -e "\033[1AMapping ............................. 100%"
