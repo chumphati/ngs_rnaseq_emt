@@ -1,3 +1,4 @@
 fastqc
 trimmomatic
+star
 end

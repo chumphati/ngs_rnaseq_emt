@@ -15,11 +15,8 @@ if [ ! -d $FILTERED_FASTQC ];then
   mkdir -p $FILTERED_FASTQC
 fi
 
-conda activate fastqc > /dev/null 2>&1
+fastqc -o $RAW_FASTQC $RAW_FASTQ/* > /dev/null 2>&1
+echo -e "\033[1AQuality control (fastqc) ............................. 50%"
+fastqc -o $FILTERED_FASTQC $FILTERED_FASTQ/* > /dev/null 2>&1
 
-fastqc -o $RAW_FASTQC $RAW_FASTQ/*
-fastqc -o $FILTERED_FASTQC $FILTERED_FASTQ/*
-
-conda deactivate > /dev/null 2>&1
-
-echo -e "\033[1AClean reads ............................. 100%"
+echo -e "\033[1AQuality control (fastqc) ............................. 100%"
