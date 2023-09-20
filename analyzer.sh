@@ -54,3 +54,7 @@ if [ "$quality_control_specified" == true ]; then
 fi
 #alignement
 bash "./modules/mapping.sh"
+
+echo -e "\n ---------------"
+echo "| Analysis done |"
+echo " ---------------"
