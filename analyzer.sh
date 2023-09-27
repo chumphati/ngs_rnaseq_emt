@@ -37,7 +37,6 @@ while IFS= read -r dep; do
         echo "$dep is well installed."
     else
         echo "$dep is not installed."
-        exit 1
     fi
 done < "$dependencies_file"
 echo -e "All the dependencies have been checked.\n"
@@ -54,6 +53,8 @@ if [ "$quality_control_specified" == true ]; then
 fi
 #alignement
 bash "./modules/mapping.sh"
+#index bam
+bash "./modules/process_bam.sh"
 
 echo -e "\n ---------------"
 echo "| Analysis done |"

@@ -16,6 +16,7 @@ Ce dépôt doit être cloné :
 Le pipeline peut être lancé via ses executables directement dans le dossier d'installation :
 
     cd ngs_ue_ami2b
+    conda activate analyzer
     bash analyser.sh <options> [--download_data | --import_data]
 
 Pour plus d'information sur les options disponible :
@@ -38,6 +39,8 @@ Ces dépendances peuvent être installées via :
     conda install -c bioconda fastqc
     conda install -c bioconda trimmomatic
     conda install -c bioconda star
+    conda install -c bioconda samtools
     conda deactivate
+    sudo apt-get install subread
 
 

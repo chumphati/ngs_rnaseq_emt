@@ -8,7 +8,7 @@ echo "Download reference and annotation file ............................. 0%"
 
 #créer le répertoire si nécessaire
 if [ ! -d results/MAPPING ];then
-  mkdir -p results/MAPPING/DATA_REF
+  mkdir -p results/MAPPING_REF
 fi
 
 wget -P $MAPPING_REF http://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr18.fa.gz > /dev/null 2>&1
