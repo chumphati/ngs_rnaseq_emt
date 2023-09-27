@@ -17,11 +17,11 @@ Le pipeline peut être lancé via ses executables directement dans le dossier d'
 
     cd ngs_ue_ami2b
     conda activate analyzer
-    bash analyser.sh <options> [--download_data | --import_data]
+    bash analyzer.sh <options> [--download_data | --import_data]
 
 Pour plus d'information sur les options disponible :
 
-    bash analyser.sh --help
+    bash analyzer.sh --help
 
 Il faut obligatoirement spécifier en argument si on souhaite télécharger de novo les données ou fournir un dossier des fichiers fastq.
 

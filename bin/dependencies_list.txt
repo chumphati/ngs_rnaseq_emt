@@ -1,4 +1,5 @@
 fastqc
 trimmomatic
 star
+samtools
 end
