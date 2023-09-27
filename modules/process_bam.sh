@@ -20,7 +20,7 @@ done
 echo -e "\033[1AIndex bam files ............................. 100%"
 
 echo "Feature counts ............................. 0%"
-featureCounts -p -t exon -g gene_id -a "$MAPPING_REF/gencode.v24lift37.basic.annotation.gtf" -o "$COUNT/featureCounts.txt" "$MAPPING/*.bam" > /dev/null 2>&1
+featureCounts -p -t exon -g gene_id -a "$MAPPING_REF/gencode.v24lift37.basic.annotation.gtf" -o "$COUNT/featureCounts.txt" $MAPPING/*.bam > /dev/null 2>&1
 echo -e "\033[1AFeature counts ............................. 25%"
 perl -ne 'print "$1 $2\n" if /gene_id \"(.*?)\".*gene_name \"(.*?)\"/' "$MAPPING_REF/gencode.v24lift37.basic.annotation.gtf" | sort | uniq > "$COUNT/encode-to-hugo.tab" > /dev/null 2>&1
 echo -e "\033[1AFeature counts ............................. 50%"
