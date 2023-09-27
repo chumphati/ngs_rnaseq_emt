@@ -22,11 +22,11 @@ echo -e "\033[1AIndex bam files ............................. 100%"
 echo "Feature counts ............................. 0%"
 featureCounts -p -t exon -g gene_id -a "$MAPPING_REF/gencode.v24lift37.basic.annotation.gtf" -o "$COUNT/featureCounts.txt" $MAPPING/*.bam > /dev/null 2>&1
 echo -e "\033[1AFeature counts ............................. 25%"
-perl -ne 'print "$1 $2\n" if /gene_id \"(.*?)\".*gene_name \"(.*?)\"/' "$MAPPING_REF/gencode.v24lift37.basic.annotation.gtf" | sort | uniq > "$COUNT/encode-to-hugo.tab" > /dev/null 2>&1
+perl -ne 'print "$1 $2\n" if /gene_id \"(.*?)\".*gene_name \"(.*?)\"/' "$MAPPING_REF/gencode.v24lift37.basic.annotation.gtf" | sort | uniq > "$COUNT/encode-to-hugo.tab"
 echo -e "\033[1AFeature counts ............................. 50%"
-sort -k1,1 "$COUNT/featureCounts.txt" > "$COUNT/temp1" > /dev/null 2>&1
-echo -e "\033[1AFeature counts ............................. 60%"
-sort -k1,1 "$COUNT/encode-to-hugo.tab" > "$COUNT/temp2" > /dev/null 2>&1
-echo -e "\033[1AFeature counts ............................. 80%"
-join "$COUNT/temp1" "$COUNT/temp2" | grep "chr18" | awk '{print $13 " " $6 " "  $7 " "  $8 " "  $9 " "  $10 " "  $11 " "  $12}' > "$COUNT/final_counts.txt" > /dev/null 2>&1
-echo -e "\033[1AFeature counts ............................. 100%"
+sort -k1,1 "$COUNT/featureCounts.txt" > "$COUNT/temp1"
+# echo -e "\033[1AFeature counts ............................. 60%"
+sort -k1,1 "$COUNT/encode-to-hugo.tab" > "$COUNT/temp2"
+# echo -e "\033[1AFeature counts ............................. 80%"
+join "$COUNT/temp1" "$COUNT/temp2" | grep "chr18" | awk '{print $13 " " $6 " "  $7 " "  $8 " "  $9 " "  $10 " "  $11 " "  $12}' > "$COUNT/final_counts.txt"
+# echo -e "\033[1AFeature counts ............................. 100%"
