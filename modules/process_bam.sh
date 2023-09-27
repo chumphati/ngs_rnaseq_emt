@@ -30,3 +30,4 @@ sort -k1,1 $COUNT/encode-to-hugo.tab > $COUNT/temp2
 echo -e "\033[1AFeature counts ............................. 80%"
 join $COUNT/temp1 $COUNT/temp2 | grep "chr18" | awk '{print $13 " " $6 " "  $7 " "  $8 " "  $9 " "  $10 " "  $11 " "  $12}' > $COUNT/final_counts.txt
 echo -e "\033[1AFeature counts ............................. 100%"
+rm -rf $COUNT/temp1 $COUNT/temp2
