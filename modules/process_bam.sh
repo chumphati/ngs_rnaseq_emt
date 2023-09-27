@@ -28,5 +28,5 @@ sort -k1,1 "$COUNT/featureCounts.txt" > "$COUNT/temp1" > /dev/null 2>&1
 echo -e "\033[1AFeature counts ............................. 60%"
 sort -k1,1 "$COUNT/encode-to-hugo.tab" > "$COUNT/temp2" > /dev/null 2>&1
 echo -e "\033[1AFeature counts ............................. 80%"
-join -1 1 -2 1 "$COUNT/temp1" "$COUNT/temp2" | grep "chr18" | awk '{print $5 " " $1}' > "$COUNT/final_counts.txt" > /dev/null 2>&1
+join "$COUNT/temp1" "$COUNT/temp2" | grep "chr18" | awk '{print $13 " " $6 " "  $7 " "  $8 " "  $9 " "  $10 " "  $11 " "  $12}' > "$COUNT/final_counts.txt" > /dev/null 2>&1
 echo -e "\033[1AFeature counts ............................. 100%"
