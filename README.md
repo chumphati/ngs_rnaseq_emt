@@ -31,6 +31,8 @@ Ce pipeline est basé sur plusieurs dépendances, contenus dans des environnemen
 - fastqc v.0.12.1
 - trimmomatic v.0.39
 - star v.2.7.11a
+- samtools v1.17.24
+- subread v2.0.3
 
 Ces dépendances peuvent être installées via :
 
