@@ -15,7 +15,7 @@ x=0
 for i in "${sample_list[@]}"; do
   ((x=x+15))
   echo -e "\033[1AClean reads ............................. ${x}%"
-  trimmomatic PE "$RAW_FASTQ/${i}.R1.fastq" "$RAW_FASTQ/${i}.R2.fastq" -baseout "$FILTERED_FASTQ/${i}.fastq" LEADING:20 TRAILING:20 MINLEN:50 > /dev/null 2>&1
+  trimmomatic PE "$RAW_FASTQ/${i}.R1.fastq" "$RAW_FASTQ/${i}.R2.fastq" -baseout "$FILTERED_FASTQ/${i}.fastq" LEADING:20 TRAILING:20 MINLEN:50
 done
 
 echo -e "\033[1AClean reads ............................. 100%"
