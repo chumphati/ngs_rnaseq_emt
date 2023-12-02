@@ -13,6 +13,7 @@ Ce dépôt doit être cloné :
     git clone git@github.com:chumphati/ngs_ue_ami2b.git
 
 ## Usage
+Les dépendances doivent être installées comme décrit dans le paragraphe correspondant ci-dessous.
 Le pipeline peut être lancé via ses executables directement dans le dossier d'installation :
 
     cd ngs_ue_ami2b
@@ -24,6 +25,14 @@ Pour plus d'information sur les options disponible :
     bash analyzer.sh --help
 
 Il faut obligatoirement spécifier en argument si on souhaite télécharger de novo les données ou fournir un dossier des fichiers fastq.
+
+Pour lancer en téléchargeant les données :
+
+    bash analyzer.sh --download_data
+
+Si les données sont déjà téléchargées :
+
+    bash analyzer.sh --import_data <lien vers le dossier des données>
 
 ## Dépendances
 Ce pipeline est basé sur plusieurs dépendances, contenus dans des environnements conda  :
@@ -42,7 +51,6 @@ Ces dépendances peuvent être installées via :
     conda install -c bioconda trimmomatic
     conda install -c bioconda star
     conda install -c bioconda samtools
-    conda deactivate
     sudo apt-get install subread
 
 
